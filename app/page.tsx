@@ -8,15 +8,15 @@ export default function Home() {
 	let config: AppConfig = getConfig();
 	let linkData: LinkData = getLinkData();
 	return (
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+		<section className="flex flex-col items-center justify-center gap-4 py-6 md:py-10">
 			{
 				config &&
 				<div className="grid grid-cols-6 gap-4">
 					<span className="col-start-3 col-span-4">
-						<Avatar isBordered radius="sm" color="danger" src={config.mainImageSource} name={config.mainImageAlt} size="lg" className="w-20 h-20 text-large ml-3 md:ml-24 dark:invert" />
+						<Avatar isBordered radius="sm" color="danger" src={config.mainImageSource} name={config.mainImageAlt} size="lg" className="w-20 h-20 text-large ml-2 md:ml-24 dark:invert" />
 					</span>
 					<span className="col-start-2 col-span-4 ml-4 md:col-start-3 md:ml-10">
-						<h1 className="text-4xl font-bold">
+						<h1 className="text-3xl font-bold md:text-4xl">
 							{config.brandName}
 						</h1>
 					</span>
