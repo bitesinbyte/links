@@ -1,14 +1,13 @@
 {
-    "instagram": [
-        {
-            "title": "First",
-            "link": ""
-        }
-    ],
+    "instagram": [],
     "blog": [
         {
-            "title": "Test2",
-            "link": ""
+            "title": "Medium",
+            "link": "https://medium.com/@manish-tiwari"
+        },
+        {
+            "title": "Bites in byte - Blog",
+            "link": "https://blogs.bitesinbyte.com"
         }
     ]
 }
