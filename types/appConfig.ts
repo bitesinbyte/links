@@ -16,4 +16,5 @@ type SocialLink = {
     blog: string;
     youtube: string;
     web: string;
+    github: string;
 };
