@@ -16,6 +16,7 @@ export const Social = ({ socialLink, ...props }: SocialProps) => {
             {socialLink.twitter && <SocialLink href={socialLink.twitter} brand="twitter" />}
             {socialLink.youtube && <SocialLink href={socialLink.youtube} brand="youtube" />}
             {socialLink.web && <SocialLink href={socialLink.web} brand="web" />}
+            {socialLink.github && <SocialLink href={socialLink.github} brand="github" />}
             <ThemeSwitch />
         </div>);
 };

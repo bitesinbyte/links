@@ -1,26 +1,77 @@
-# Next.js & NextUI Template
+# Links
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+Simple and easy to use links organiser for your social media accounts
+
+## Configuration
+
+There are two configuraiton file
+
+1. [`config.json`](https://github.com/bitesinbyte/links/blob/main/data/config.json)
+
+```json
+{
+  "mainImageSource": "Main Image Path",
+  "mainImageAlt": "Main Image Alt",
+  "brandName": "Brand Name",
+  "description": "A short description",
+  "socialLinks": {
+    "instagram": "instagram link",
+    "linkedin": "",
+    "blog": "",
+    "web": "",
+    "github": "",
+    "facebook": "",
+    "snapchat": "",
+    "tiktok": "",
+    "twitter": "",
+    "youtube": ""
+  }
+}
+```
+
+2. [`links.json`](https://github.com/bitesinbyte/links/blob/main/data/links.json)
+
+```json
+{
+  "blog": [
+    {
+      "title": "Medium",
+      "link": "link"
+    },
+    {
+      "title": "Bites in byte - Blog",
+      "link": "link"
+    }
+  ],
+  "instagram": [],
+  "linkedin": [],
+  "web": [],
+  "github": [],
+  "facebook": [],
+  "snapchat": [],
+  "tiktok": [],
+  "twitter": [],
+  "youtube": []
+}
+```
 
 ## Technologies Used
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
+- [Next.js 14](https://nextjs.org/docs/getting-started)
 - [NextUI v2](https://nextui.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 
 ## How to Use
 
-
 ### Use the template with create-next-app
 
-To create a new project based on this template using `create-next-app`, run the following command:
+clone the repository, run the following command:
 
 ```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
+git clone https://github.com/bitesinbyte/links.git
 ```
 
 ### Install dependencies
@@ -37,4 +88,4 @@ npm run dev
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/bitesinbyte/links/blob/main/LICENSE).
