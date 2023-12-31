@@ -1,4 +1,5 @@
 'use client';
+import { getLinkBrandImage } from "@/utils/linksUtils";
 import capitalizeFirstLetter from "@/utils/stringUtils";
 import { Link, Card, Chip, CardBody, Image, Accordion, AccordionItem } from "@nextui-org/react";
 
@@ -16,7 +17,7 @@ export const LinkData = ({ linkData, ...props }: LinkDataProps) => {
                             key={key}
                             aria-label={key}
                             startContent={
-                                <Image src={key + ".svg"} alt={key} className="h-10 w-10 dark:invert" />
+                                <Image src={getLinkBrandImage(key) + ".svg"} alt={key} className="h-10 w-10 dark:invert" />
                             }
                             title={
                                 <div className="grid md:grid-cols-3 gap-4">
@@ -29,10 +30,10 @@ export const LinkData = ({ linkData, ...props }: LinkDataProps) => {
                                 </div>}
                         >
                             <Card>
-                                <CardBody>
+                                <CardBody className="gap-2">
                                     {linkInformation.map((l, k) => {
                                         return (
-                                            <Link key={k} target="_black" href={l.link} rel="noopener noreferrer">
+                                            <Link key={k} target="_black" href={l.link} rel="noopener noreferrer" className="border-solid border-1 border-sky-500 justify-center font-bold">
                                                 {l.title}
                                             </Link>
                                         );
