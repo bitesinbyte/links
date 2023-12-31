@@ -1,8 +1,11 @@
 ![CodeQL](https://github.com/bitesinbyte/links/actions/workflows/codeql.yml/badge.svg?branch=main)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/bitesinbyte/links/badge)](https://securityscorecards.dev/viewer/?uri=github.com/bitesinbyte/links)
+
 # Links
 
 Simple and easy to use links organiser for your social media accounts
+
+Demo - https://bitesinbyte.github.io/links
 
 ## Configuration
 
@@ -53,7 +56,8 @@ There are two configuraiton file
   "snapchat": [],
   "tiktok": [],
   "twitter": [],
-  "youtube": []
+  "youtube": [],
+  "other": []
 }
 ```
 
