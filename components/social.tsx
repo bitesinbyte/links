@@ -7,7 +7,7 @@ type SocialProps = {
 export const Social = ({ socialLink, ...props }: SocialProps) => {
     return (
         <div className="flex gap-4 items-center">
-            {socialLink.blog && <SocialLink href={socialLink.instagram} brand="blog" />}
+            {socialLink.blog && <SocialLink href={socialLink.blog} brand="blog" />}
             {socialLink.facebook && <SocialLink href={socialLink.facebook} brand="facebook" />}
             {socialLink.linkedin && <SocialLink href={socialLink.linkedin} brand="linkedin" />}
             {socialLink.instagram && <SocialLink href={socialLink.instagram} brand="instagram" />}
