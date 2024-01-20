@@ -12,10 +12,13 @@ export const LinkData = ({ linkData, ...props }: LinkDataProps) => {
             {linkData &&
                 Object.keys(linkData).map((key) => {
                     let linkInformation = linkData[key];
+                    console.log(linkInformation.length);
+                    console.log(linkInformation.length < 0);
                     return (
                         <AccordionItem
                             key={key}
                             aria-label={key}
+                            hidden={linkInformation.length == 0}
                             startContent={
                                 <Image src={getLinkBrandImage(key) + ".svg"} alt={key} className="h-10 w-10 dark:invert" />
                             }
@@ -33,7 +36,7 @@ export const LinkData = ({ linkData, ...props }: LinkDataProps) => {
                                 <CardBody className="gap-2">
                                     {linkInformation.map((l, k) => {
                                         return (
-                                            <Link key={k} target="_black" href={l.link} rel="noopener noreferrer" className="border-solid border-1 border-sky-500 justify-center font-bold">
+                                            <Link showAnchorIcon key={k} target="_black" href={l.link} rel="noopener noreferrer" className="border-solid border-1 border-sky-500 justify-center font-bold" >
                                                 {l.title}
                                             </Link>
                                         );
