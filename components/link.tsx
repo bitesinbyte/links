@@ -12,8 +12,6 @@ export const LinkData = ({ linkData, ...props }: LinkDataProps) => {
             {linkData &&
                 Object.keys(linkData).map((key) => {
                     let linkInformation = linkData[key];
-                    console.log(linkInformation.length);
-                    console.log(linkInformation.length < 0);
                     return (
                         <AccordionItem
                             key={key}
