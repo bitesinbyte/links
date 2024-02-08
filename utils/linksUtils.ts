@@ -15,6 +15,7 @@ export function getLinkBrandImage(link: string): string {
         case "twitter":
         case "web":
         case "youtube":
+        case "mastodon":
             return link;
     }
     return "externallink";
