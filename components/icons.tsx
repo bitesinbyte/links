@@ -2,7 +2,7 @@ import * as React from "react";
 import { IconSvgProps } from "@/types";
 
 export const MoonFilledIcon = ({
-    size = 30,
+    size,
     width,
     height,
     ...props
@@ -23,7 +23,7 @@ export const MoonFilledIcon = ({
 );
 
 export const SunFilledIcon = ({
-    size = 30,
+    size,
     width,
     height,
     ...props

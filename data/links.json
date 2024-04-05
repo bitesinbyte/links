@@ -9,5 +9,15 @@
             "title": "Bites in byte - Blog",
             "link": "https://blogs.bitesinbyte.com"
         }
+    ],
+    "tools": [
+        {
+            "title": "Edmx Tools",
+            "link": "http://edmx.bitesinbyte.com/"
+        },
+        {
+            "title": "Others",
+            "link": "https://tools.bitesinbyte.com/"
+        }
     ]
 }

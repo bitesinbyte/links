@@ -18,4 +18,5 @@ type SocialLink = {
     web: string;
     github: string;
     mastodon: string;
+    threads: string;
 };
