@@ -1,0 +1,31 @@
+{
+  "name": "Links",
+  "runArgs": [
+    "--userns=keep-id:uid=1000,gid=1000"
+  ],
+  "containerUser": "root",
+  "updateRemoteUserUID": true,
+  "containerEnv": {
+    "HOME": "/home/root"
+  },
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "remoteUser": "root",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": "os-provided"
+  },
+  "remoteEnv": {
+    "DISPLAY": ":0"
+  }
+}
