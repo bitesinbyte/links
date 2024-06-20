@@ -11,6 +11,10 @@
         }
     ],
     "tools": [
+         {
+            "title": "LebenInDeutschland",
+            "link": "http://lebenindeutschland.org/"
+        },
         {
             "title": "Edmx Tools",
             "link": "http://edmx.bitesinbyte.com/"
