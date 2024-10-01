@@ -11,13 +11,17 @@
         }
     ],
     "tools": [
-         {
+        {
+            "title": "Resume Builder",
+            "link": "https://resume.bitesinbyte.com/"
+        },
+        {
             "title": "LebenInDeutschland",
-            "link": "http://lebenindeutschland.org/"
+            "link": "https://lebenindeutschland.org/"
         },
         {
             "title": "Edmx Tools",
-            "link": "http://edmx.bitesinbyte.com/"
+            "link": "https://edmx.bitesinbyte.com/"
         },
         {
             "title": "Others",
