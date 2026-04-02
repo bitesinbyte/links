@@ -1,6 +1,6 @@
-type LinkData = Record<string, LinkDataDetails[]>;
+export type LinkData = Record<string, LinkDataDetails[]>;
 
-type LinkDataDetails = {
-    title: string;
-    link: string;
+export type LinkDataDetails = {
+  title: string;
+  link: string;
 };

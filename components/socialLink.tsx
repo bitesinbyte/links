@@ -1,13 +1,27 @@
-import { Link, Image } from "@nextui-org/react";
+"use client";
+
+import { motion } from "framer-motion";
+import { getSocialIcon } from "@/components/icons";
+
 type SocialLinkProps = {
-    href: string
-    brand: string
+  href: string;
+  brand: string;
 };
 
-export const SocialLink = ({ href, brand, ...props }: SocialLinkProps) => {
-    return (
-        <Link target="_black" href={href} rel="noopener noreferrer me">
-            <Image src={brand + ".svg"} alt={brand} className="h-10 w-10 dark:invert" />
-        </Link>
-    );
+export const SocialLink = ({ href, brand }: SocialLinkProps) => {
+  const Icon = getSocialIcon(brand);
+
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer me"
+      whileHover={{ scale: 1.12, y: -3 }}
+      whileTap={{ scale: 0.92 }}
+      className="social-btn"
+      aria-label={brand}
+    >
+      <Icon size={18} />
+    </motion.a>
+  );
 };

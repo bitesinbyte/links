@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  basePath: "https://links.bitesinbyte.com",
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.google.com",
+        pathname: "/s2/favicons**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

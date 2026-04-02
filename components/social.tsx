@@ -1,24 +1,53 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { SocialLink } from "./socialLink";
 import { ThemeSwitch } from "./theme-switch";
+import type { SocialLink as SocialLinkType } from "@/types";
 
 type SocialProps = {
-    socialLink: SocialLink
+  socialLink: SocialLinkType;
 };
-export const Social = ({ socialLink, ...props }: SocialProps) => {
-    return (
-        <div className=" gap-4 items-center sm:flex-col">
-            {socialLink.blog && <SocialLink href={socialLink.blog} brand="blog" />}
-            {socialLink.facebook && <SocialLink href={socialLink.facebook} brand="facebook" />}
-            {socialLink.linkedin && <SocialLink href={socialLink.linkedin} brand="linkedin" />}
-            {socialLink.instagram && <SocialLink href={socialLink.instagram} brand="instagram" />}
-            {socialLink.snapchat && <SocialLink href={socialLink.snapchat} brand="snapchat" />}
-            {socialLink.tiktok && <SocialLink href={socialLink.tiktok} brand="tiktok" />}
-            {socialLink.twitter && <SocialLink href={socialLink.twitter} brand="twitter" />}
-            {socialLink.youtube && <SocialLink href={socialLink.youtube} brand="youtube" />}
-            {socialLink.web && <SocialLink href={socialLink.web} brand="web" />}
-            {socialLink.github && <SocialLink href={socialLink.github} brand="github" />}
-            {socialLink.mastodon && <SocialLink href={socialLink.mastodon} brand="mastodon" />}
-            {socialLink.threads && <SocialLink href={socialLink.threads} brand="threads" />}
-            <ThemeSwitch />
-        </div>);
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
+};
+
+const socialOrder = [
+  "web", "github", "blog", "linkedin", "instagram",
+  "mastodon", "threads", "twitter", "youtube",
+  "facebook", "tiktok", "snapchat",
+] as const;
+
+export const Social = ({ socialLink }: SocialProps) => {
+  return (
+    <motion.div
+      className="flex flex-wrap items-center justify-center gap-3"
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
+      {socialOrder.map((key) => {
+        const href = socialLink[key];
+        if (!href) return null;
+        return (
+          <motion.div key={key} variants={item}>
+            <SocialLink href={href} brand={key} />
+          </motion.div>
+        );
+      })}
+      <motion.div variants={item}>
+        <ThemeSwitch />
+      </motion.div>
+    </motion.div>
+  );
 };

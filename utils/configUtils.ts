@@ -1,5 +1,6 @@
-import configJson from '../data/config.json';
-export default function getConfig():AppConfig {
-    let config:AppConfig = JSON.parse(JSON.stringify(configJson));
-    return config;
+import type { AppConfig } from "@/types";
+import configJson from "../data/config.json";
+
+export default function getConfig(): AppConfig {
+  return configJson as AppConfig;
 }

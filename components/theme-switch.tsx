@@ -1,77 +1,51 @@
 "use client";
 
-import { FC } from "react";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
-import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
-import { useIsSSR } from "@react-aria/ssr";
-import clsx from "clsx";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { SunIcon, MoonIcon } from "@/components/icons";
 
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
+export const ThemeSwitch = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-export interface ThemeSwitchProps {
-	className?: string;
-	classNames?: SwitchProps["classNames"];
-}
+  useEffect(() => setMounted(true), []);
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
-	className,
-	classNames,
-}) => {
-	const { theme, setTheme } = useTheme();
-	const isSSR = useIsSSR();
+  if (!mounted) return <div className="w-11 h-11" />;
 
-	const onChange = () => {
-		theme === "light" ? setTheme("dark") : setTheme("light");
-	};
+  const isDark = theme === "dark";
 
-	const {
-		Component,
-		slots,
-		isSelected,
-		getBaseProps,
-		getInputProps,
-		getWrapperProps,
-	} = useSwitch({
-		isSelected: theme === "light" || isSSR,
-		"aria-label": `Switch to ${theme === "light" || isSSR ? "dark" : "light"} mode`,
-		onChange,
-	});
-
-	return (
-		<Component
-			{...getBaseProps({
-				className: clsx(
-					"px-px transition-opacity hover:opacity-80 cursor-pointer",
-					className,
-					classNames?.base
-				),
-			})}
-		>
-			<VisuallyHidden>
-				<input {...getInputProps()} />
-			</VisuallyHidden>
-			<div
-				{...getWrapperProps()}
-				className={slots.wrapper({
-					class: clsx(
-						[
-							"w-auto h-auto",
-							"bg-transparent",
-							"rounded-lg",
-							"flex items-center justify-center",
-							"group-data-[selected=true]:bg-transparent",
-							"!text-default-500",
-							"pt-px",
-							"px-0",
-							"mx-0",
-						],
-						classNames?.wrapper
-					),
-				})}
-			>
-				{!isSelected || isSSR ? <SunFilledIcon className="h-10 w-10" width="800px" height="800px" /> : <MoonFilledIcon className="h-10 w-10 dark:invert" width="800px" height="800px" />}
-			</div>
-		</Component>
-	);
+  return (
+    <motion.button
+      whileHover={{ scale: 1.12, y: -3 }}
+      whileTap={{ scale: 0.92 }}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="social-btn"
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+    >
+      <AnimatePresence mode="wait">
+        {isDark ? (
+          <motion.div
+            key="sun"
+            initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+            animate={{ rotate: 0, opacity: 1, scale: 1 }}
+            exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <SunIcon size={18} className="text-amber-400" />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="moon"
+            initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
+            animate={{ rotate: 0, opacity: 1, scale: 1 }}
+            exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <MoonIcon size={18} className="text-indigo-400" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.button>
+  );
 };

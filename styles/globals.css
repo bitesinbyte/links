@@ -1,4 +1,134 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "tailwindcss/screens";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #fafbfe;
+    --bg-secondary: #eef1f8;
+    --text-primary: #0c0e1a;
+    --text-secondary: #5c6080;
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-hover: rgba(255, 255, 255, 0.75);
+    --card-shadow: 0 4px 24px rgba(99, 102, 241, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --card-shadow-hover: 0 8px 40px rgba(99, 102, 241, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+    --accent-1: #6366f1;
+    --accent-2: #a855f7;
+    --accent-3: #ec4899;
+    --glow-color: rgba(99, 102, 241, 0.15);
+  }
+
+  .dark {
+    --bg-primary: #06070e;
+    --bg-secondary: #0f1021;
+    --text-primary: #e8eafc;
+    --text-secondary: #7b80a8;
+    --glass-bg: rgba(15, 16, 33, 0.65);
+    --glass-border: rgba(99, 102, 241, 0.1);
+    --glass-hover: rgba(20, 22, 48, 0.8);
+    --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(99, 102, 241, 0.05);
+    --card-shadow-hover: 0 8px 40px rgba(99, 102, 241, 0.15), 0 0 0 1px rgba(99, 102, 241, 0.15);
+    --glow-color: rgba(99, 102, 241, 0.08);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl rounded-2xl transition-all duration-300;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--card-shadow);
+  }
+
+  .glass-card:hover {
+    background: var(--glass-hover);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  /* Gradient border effect via pseudo-element */
+  .gradient-border {
+    position: relative;
+    background: var(--glass-bg);
+    border: none;
+    isolation: isolate;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      var(--accent-1),
+      var(--accent-2),
+      var(--accent-3),
+      var(--accent-1)
+    );
+    background-size: 300% 300%;
+    animation: gradient 6s ease infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    background-size: 300% 300%;
+    animation: gradient 6s ease infinite;
+  }
+
+  .link-button {
+    @apply glass-card gradient-border rounded-xl px-5 py-4 flex items-center gap-4 cursor-pointer;
+    @apply hover:translate-y-[-2px];
+  }
+
+  .link-button:hover {
+    box-shadow:
+      var(--card-shadow-hover),
+      0 0 60px -15px var(--glow-color);
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-secondary)] mb-3 px-1;
+  }
+
+  .social-btn {
+    @apply w-11 h-11 rounded-xl glass-card gradient-border flex items-center justify-center;
+    @apply text-[var(--text-secondary)] hover:text-[var(--accent-1)] transition-all duration-300;
+  }
+
+  .avatar-ring {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    background-size: 300% 300%;
+    animation: gradient 4s ease infinite;
+  }
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-secondary); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-1); }

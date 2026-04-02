@@ -1,5 +1,2 @@
-import {SVGProps} from "react";
-
-export type IconSvgProps = SVGProps<SVGSVGElement> & {
-  size?: number;
-};
+export type { AppConfig, SocialLink } from "./appConfig";
+export type { LinkData, LinkDataDetails } from "./links";

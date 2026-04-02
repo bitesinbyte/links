@@ -1,13 +1,12 @@
 {
-    "instagram": [],
-    "blog": [
+    "products": [
         {
-            "title": "Medium",
-            "link": "https://medium.bitesinbyte.com"
+            "title": "Amistio — AI Medical Training",
+            "link": "https://www.amistio.com/"
         },
         {
-            "title": "Bites in byte - Blog",
-            "link": "https://blogs.bitesinbyte.com"
+            "title": "Leben in Deutschland",
+            "link": "https://www.lebenindeutschland.org/"
         }
     ],
     "tools": [
@@ -16,16 +15,18 @@
             "link": "https://resume.bitesinbyte.com/"
         },
         {
-            "title": "LebenInDeutschland",
-            "link": "https://lebenindeutschland.org/"
-        },
-        {
-            "title": "Edmx Tools",
+            "title": "EDMX Tools",
             "link": "https://edmx.bitesinbyte.com/"
+        }
+    ],
+    "blog": [
+        {
+            "title": "Medium",
+            "link": "https://medium.bitesinbyte.com"
         },
         {
-            "title": "Others",
-            "link": "https://tools.bitesinbyte.com/"
+            "title": "Bites in byte - Blog",
+            "link": "https://blogs.bitesinbyte.com"
         }
     ]
 }
