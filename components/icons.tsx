@@ -189,7 +189,7 @@ export function getLinkIcon(url: string) {
         if (hostname.includes("medium")) return MediumIcon;
         if (hostname.includes("resume")) return FileTextIcon;
         if (hostname.includes("edmx")) return CodeIcon;
-        if (hostname.includes("amistio")) return PackageIcon;
+        if (hostname.includes("kenntnistrainer")) return PackageIcon;
         if (hostname.includes("lebenindeutschland")) return GlobeIcon;
         if (hostname.includes("blog")) return PenToolIcon;
     } catch {
